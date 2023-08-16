@@ -6,6 +6,10 @@
   role: Founder & Primary Developer
   duration: 2012 &mdash; Present
   # url: "#"
+  skills:
+    - skill: Skill 1
+    - skill: Skill 2
+    - skill: Skill 3
   description: Jazz Notes is an open source node/ember app that helps you keep track of your music compositions and new ideas.
 
 # Springfield Community Outreach Group
@@ -13,4 +17,8 @@
   role: Co-Founder & Organizer
   duration: 2007 &mdash; Present
   # url: "#"
+  skills:
+    - skill: Skill 1
+    - skill: Skill 2
+    - skill: Skill 3
   description: SCOG is a local monthly meetup in Springfield where we share opportunities to volunteer in the community and organize support for families and neighborhoods in need of assistance that the community can provide.
