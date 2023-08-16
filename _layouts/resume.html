@@ -6,14 +6,11 @@
   <body class="theme-{% if site.resume_theme %}{{ site.resume_theme }}{% endif %}">
 
     <div class="wrapper" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="telephone" content="{{ site.resume_contact_telephone }}"/>
-      <meta itemprop="address" content="{{ site.resume_contact_address }}"/>
-
       <header class="page-header">
 
         <!-- You can turn off the avatar in _config.yml by setting to false -->
-        {% if site.resume_avatar == 'true' %}
-        <img src="images/avatar.jpg" alt="my photo" class="avatar no-print" itemprop="image">
+        {% if site.resume_avatar_url %}
+        <img src="{{ site.resume_avatar_url }}" alt="my photo" class="avatar no-print" itemprop="image"/>
         {% endif %}
 
         <!-- Your name is defined in the _config.yml file -->
@@ -60,6 +57,13 @@
         <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
           <h3 class="resume-item-title" itemprop="name">{{ job.company }}</h3>
           <h4 class="resume-item-details" itemprop="description">{{ job.position }} &bull; {{ job.duration }}</h4>
+
+          <div class="word-cloud">
+            {% for skill in job.skills %}
+              <span class="cloud-item weight-30">{{ skill.skill }}</span>
+            {% endfor %}
+          </div>
+
           <p class="resume-item-copy">{{ job.summary }}</p>
         </div><!-- end of resume-item -->
         {% endfor %}
@@ -87,7 +91,7 @@
               <li>{{ award.award }}</li>
               {% endfor %}
             </ul>
-
+          </p>
 
           <p class="resume-item-copy">{{ education.summary }}</p>
         </div>
@@ -108,7 +112,16 @@
         <div class="resume-item" itemscope itemtype="http://schema.org/CreativeWork">
           <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
           <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
-          <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
+          {% if project.role and project.duration %}
+          <h4 class="resume-item-details" itemprop="description">{{ project.role }} &bull; {{ project.duration }}</h4>
+          {% endif %}
+
+          <div class="word-cloud">
+            {% for skill in project.skills %}
+              <span class="cloud-item weight-30">{{ skill.skill }}</span>
+            {% endfor %}
+          </div>
+
           <p class="resume-item-copy">{{ project.description }}</p>
         </div>
         {% endfor %}
@@ -124,13 +137,22 @@
         <header class="section-header">
           <h2>Skills</h2>
         </header>
-        {% for skill in site.data.skills %}
-        <div class="resume-item">
-          <h4 class="resume-item-details">{{ skill.skill }}</h4>
-          <p class="resume-item-copy">{{ skill.description }}</p>
-        </div>
-        {% endfor %}
 
+        <div class="resume-item">
+        {% for category in site.data.skills %}
+          <h3 class="resume-item-title">{{ category.category }}</h3>
+
+          <div class="word-cloud skill-category-{{ category.category | slugify}}">
+            {% assign sorted_skills = category.skills | sort: "weight" | reverse %}
+
+            {% for skill in sorted_skills %}
+              <span class="cloud-item weight-{{ skill.weight }}" title="{{ skill.description }}">
+                {{ skill.skill }}
+              </span>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        </div>
       </section>
       <!-- end Skills -->
       {% endif %}
@@ -206,7 +228,7 @@
         <div class="resume-item">
           <ul class="resume-item-list">
             {% for link in site.data.links %}
-            <li><a href={{ link.url }} itemprop="url">{{ link.description }}</a></li>
+            <li><a href="{{ link.url }}" itemprop="url">{{ link.description }}</a></li>
             {% endfor %}
           </ul>
         </div>
@@ -232,8 +254,6 @@
       {% endif %}
 
       <footer class="page-footer">
-        <p class="footer-line">Made by <a href="http://twitter.com/jglovier">@jglovier</a>. Fork me on <a href="https://github.com/jglovier/resume-template">GitHub</a>.</p>
-        <p class="footer-line">If this is your live resume, you can modify or remove this part. ;-)</p>
       </footer>
 
     </div>
