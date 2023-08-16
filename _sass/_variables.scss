@@ -17,5 +17,9 @@ $body-font: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans
 // The base body size
 $body-font-size: 13px !default;
 
+// Wordcloud font range
+$min-font-size: $body-font-size * 1.2;
+$max-font-size: $body-font-size * 2.2;
+
 // Monospace font stack
 $mono-font: Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
