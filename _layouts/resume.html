@@ -113,7 +113,7 @@
           <meta itemprop="creator" content="{{ site.resume_name }}" itemtype="http://schema.org/Person" />
           <h3 class="resume-item-title" itemprop="name">{% if project.url %}<a href="{{ project.url }}" itemprop="url">{{ project.project }}</a>{% else %}{{ project.project }}{% endif %}</h3>
           {% if project.role and project.duration %}
-          <h4 class="resume-item-details" itemprop="description">{{ project.role }}  &bull; {{ project.duration }}</h4>
+          <h4 class="resume-item-details" itemprop="description">{{ project.role }} &bull; {{ project.duration }}</h4>
           {% endif %}
 
           <div class="word-cloud">
