@@ -135,8 +135,6 @@
 
   $i: $min-weight;
   @while $i <= $max-weight {
-    @debug $i;
-
     @include word_cloud_font_weight($i, $min-font-size, $max-font-size);
 
     $i: $i + $step;
