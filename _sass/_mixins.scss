@@ -1,6 +1,8 @@
 // Mixins
 // ---------------------------------------/
 
+@use "sass:math";
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -100,4 +102,43 @@
   border-top: 1px solid #c7c7c7;
   border-bottom: 1px solid #c7c7c7;
   padding: .2rem 0 .2rem;
+}
+
+@mixin word_cloud_font_weight($weight, $min-font-size, $max-font-size) {
+  @if $weight <= 0 {
+    @error "Property #{$weight} must be a positive number.";
+  } @else if $min-font-size <=0 {
+    @error "Property #{$min-font-size} must be a positive number.";
+  } @else if $max-font-size <=0 {
+    @error "Property #{$max-font-size} must be a positive number.";
+  } @else if $max-font-size < $min-font-size {
+    @error "Property #{$max-font-size} must be greater than or equal to #{$min-font-size}.";
+  }
+
+  .weight-#{$weight} {
+    //TODO jekyll-sass-converter v1.5.2 (jekyll v3.8.7) is complaining about math.div
+    //font-size: $min-font-size + ($max-font-size - $min-font-size) * math.div($weight, 100);
+    font-size: $min-font-size + ($max-font-size - $min-font-size) * $weight / 100;
+  }
+}
+
+@mixin word_cloud_font_weight_generator($min-font-size, $max-font-size, $min-weight: 10, $max-weight: 100, $step: 10) {
+  @if $min-weight <= 0 {
+    @error "Property #{$min-weight} must be a positive number.";
+  } @else if $max-weight <= 0 {
+    @error "Property #{$max-weight} must be a positive number.";
+  } @else if $max-weight < $min-weight {
+    @error "Property #{$max-weight} must be greater than or equal to #{$min-weight}.";
+  } @else if $step <= 0 {
+    @error "Property #{$step} must be a positive number.";
+  }
+
+  $i: $min-weight;
+  @while $i <= $max-weight {
+    @debug $i;
+
+    @include word_cloud_font_weight($i, $min-font-size, $max-font-size);
+
+    $i: $i + $step;
+  }
 }
