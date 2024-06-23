@@ -116,9 +116,7 @@
   }
 
   .weight-#{$weight} {
-    //TODO jekyll-sass-converter v1.5.2 (jekyll v3.8.7) is complaining about math.div
-    //font-size: $min-font-size + ($max-font-size - $min-font-size) * math.div($weight, 100);
-    font-size: $min-font-size + ($max-font-size - $min-font-size) * $weight / 100;
+    font-size: $min-font-size + ($max-font-size - $min-font-size) * math.div($weight, 100);
   }
 }
 
