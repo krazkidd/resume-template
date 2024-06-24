@@ -9,9 +9,28 @@ sass:
   style: compressed
 
 plugins:
+  # previously provided by GitHub Pages legacy deployment
+  # see https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
+  # - jekyll-coffeescript
+  # - jekyll-default-layout
+  # - jekyll-gist
+  # - jekyll-github-metadata
+  # - jekyll-optional-front-matter
+  # - jekyll-paginate
+  # - jekyll-readme-index
+  # - jekyll-titles-from-headings
+  # - jekyll-relative-links
+
   - jekyll-avatar
   - jekyll-feed
   - jekyll-remote-theme
+
+  # consider using now with GitHub Actions deployment
+  #- jekyll-email-protect
+  #- jekyll_github_chart
+  #- jekyll-mermaid
+  #TODO compare to jemoji
+  #- jekyll-octicons
 
 # Resume settings
 resume_avatar:                  false
