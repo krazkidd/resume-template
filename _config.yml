@@ -45,14 +45,14 @@ plugins:
 #   - vendor/ruby/
 
 # Resume settings
-resume_avatar:                  false
-resume_name:                    "Lisa M. Simpson"
-resume_title:                   "VP of Global Communications"
+resume_avatar:                  octocat
+resume_name:                    "octocat"
+resume_title:                   "GitHub's Mascot"
 
 # used for the contact button in _layouts/resume.html
-resume_contact_email:           "lisasimpson@youremailaddress.com"
+resume_contact_email:           "example@example.com"
 
-resume_header_contact_info:     "742 Evergreen Terrace, Springfield • 555-7334 • lisasimpson@youremailaddress.com"
+resume_header_contact_info:     "Earth • 555-7334 • example@example.com"
 display_header_contact_info:    "false"
 
 resume_header_intro: >
