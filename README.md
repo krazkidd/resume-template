@@ -23,8 +23,10 @@ Open your browser to the location printed in the terminal output (default `http:
 
 To test locally with docker, run the following in your terminal after installing docker into your system:
 
-1. `docker image build -t resume-template .`
-2. `docker run --rm --name resume-template -v "$PWD":/home/app --network host resume-template`
+```bash
+docker image build -t resume-template .
+docker run --rm --network host resume-template
+```
 
 ### Customizing
 
