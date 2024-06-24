@@ -32,6 +32,18 @@ plugins:
   #TODO compare to jemoji
   #- jekyll-octicons
 
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
 # Resume settings
 resume_avatar:                  false
 resume_name:                    "Lisa M. Simpson"
