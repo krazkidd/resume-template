@@ -9,8 +9,8 @@
       <header class="page-header">
 
         <!-- You can turn off the avatar in _config.yml by setting to false -->
-        {% if site.resume_avatar_url %}
-        <img src="{{ site.resume_avatar_url }}" alt="my photo" class="avatar no-print" itemprop="image"/>
+        {% if site.resume_avatar %}
+          {% avatar {{ site.resume_avatar }} size=95 %}
         {% endif %}
 
         <!-- Your name is defined in the _config.yml file -->

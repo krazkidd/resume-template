@@ -1,6 +1,6 @@
-FROM ruby:2.7
+FROM ruby:3
 
-WORKDIR /home/app
+WORKDIR /app
 
 COPY Gemfile* ./
 

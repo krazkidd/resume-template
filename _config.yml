@@ -8,8 +8,44 @@ sass:
   sass_dir: _sass
   style: compressed
 
+plugins:
+  # previously provided by GitHub Pages legacy deployment
+  # see https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
+  # - jekyll-coffeescript
+  # - jekyll-default-layout
+  # - jekyll-gist
+  # - jekyll-github-metadata
+  # - jekyll-optional-front-matter
+  # - jekyll-paginate
+  # - jekyll-readme-index
+  # - jekyll-titles-from-headings
+  # - jekyll-relative-links
+
+  - jekyll-avatar
+  - jekyll-feed
+  - jekyll-remote-theme
+
+  # consider using now with GitHub Actions deployment
+  #- jekyll-email-protect
+  #- jekyll_github_chart
+  #- jekyll-mermaid
+  #TODO compare to jemoji
+  #- jekyll-octicons
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
 # Resume settings
-resume_avatar:                  "true"
+resume_avatar:                  false
 resume_name:                    "Lisa M. Simpson"
 resume_title:                   "VP of Global Communications"
 
