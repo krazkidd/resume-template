@@ -8,6 +8,11 @@ sass:
   sass_dir: _sass
   style: compressed
 
+plugins:
+  - jekyll-avatar
+  - jekyll-feed
+  - jekyll-remote-theme
+
 # Resume settings
 resume_avatar:                  "true"
 resume_name:                    "Lisa M. Simpson"
